@@ -2,7 +2,7 @@ pipeline
 {
  environment
  {
-    image = "172.20.149.107:5000/docker2demo        
+    image = "172.20.149.107:5000/docker2demo"        
     dockerImage = ''
  }
  agent any
