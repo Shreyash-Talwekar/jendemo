@@ -2,7 +2,7 @@ pipeline
 {
  environment
  {
-    image = "172.20.149.107:5000/docker2demo"        
+    image = '172.20.149.107:5000/dockerdemo3'        
     dockerImage = ''
  }
  agent any
@@ -22,6 +22,7 @@ pipeline
       script
       {
         dockerImage = docker.build image+ ":$BUILD_NUMBER"
+        echo "Say Hello to me"
       }
     }
    }
