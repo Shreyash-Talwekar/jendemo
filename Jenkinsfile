@@ -2,8 +2,7 @@ pipeline
 {
  environment
  {
-    registry = "172.20.149.107:5000/docker2demo"
-    registryCredential = ''
+    image = "172.20.149.107:5000/docker2demo        
     dockerImage = ''
  }
  agent any
@@ -22,7 +21,7 @@ pipeline
     {
       script
       {
-        dockerImage = docker.build registry+ ":$BUILD_NUMBER"
+        dockerImage = docker.build image+ ":$BUILD_NUMBER"
       }
     }
    }
@@ -32,7 +31,7 @@ pipeline
     {
       script
       {
-        docker.withRegistry( '', registryCredential )
+        docker.withRegistry( 'http://172.20.149.107:5000')
         {
           dockerImage.push()
         }
