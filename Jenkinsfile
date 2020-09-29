@@ -2,8 +2,8 @@ pipeline
 {
  environment
  {
-    registry = "snt2510/docker2demo"
-    registryCredential = 'dockerhub__id'
+    registry = "172.20.149.107:5000/docker2demo"
+    registryCredential = ''
     dockerImage = ''
  }
  agent any
