@@ -3,7 +3,7 @@ pipeline
  environment
  {
     registry = "snt2510/docker2demo"
-    registryCredential = 'dockerhub_id'
+    registryCredential = 'dockerhub__id'
     dockerImage = ''
  }
  agent any
