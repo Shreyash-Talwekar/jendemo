@@ -1,11 +1,13 @@
 pipeline
 {
  environment
- {
-    image = '172.20.149.107:5000/dockerdemo3'        
+ {        
     dockerImage = ''
  }
  agent any
+ parameters{
+ 	string(name : 'Image', defaultValue : '', description: 'This is name of Image to be pushed to Docker Registry')
+ }
  stages
  {
    stage('Git Step')
@@ -21,7 +23,7 @@ pipeline
     {
       script
       {
-        dockerImage = docker.build image+ ":$BUILD_NUMBER"
+        dockerImage = docker.build "${params.Image}"+":$BUILD_NUMBER"
         echo "Say Hello to me"
       }
     }
@@ -32,7 +34,7 @@ pipeline
     {
       script
       {
-        docker.withRegistry( 'http://172.20.149.107:5000')
+        docker.withRegistry('http://172.20.149.107:5000')
         {
           dockerImage.push()
         }
